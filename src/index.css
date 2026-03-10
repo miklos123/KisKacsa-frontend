@@ -1,0 +1,305 @@
+/*mindenre vonatkozas*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.page {
+  font-family: "Georgia", serif;
+  background: #2f3f55;
+  min-height: 100vh;
+  color: #fff;
+}
+
+/*herooo*/
+
+.hero {
+  position: relative;
+  height: 360px;
+  background-image: url("https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=2070");
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-overlay {
+  position: relative;
+  height: 100%;
+  background: rgba(45, 60, 80, 0.78);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*jobb oldali lista*/
+
+.hero-right {
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: right;
+  font-size: 12px;
+  letter-spacing: 1px;
+  opacity: 0.9;
+}
+
+.hero-right span {
+  display: block;
+  margin: 4px 0;
+  cursor: pointer;
+}
+
+/*cim*/
+
+.title {
+  font-size: 64px;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 2px;
+}
+
+/*nav*/
+
+.main-nav {
+  background: #5f738d;
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  padding: 16px 10px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.main-nav a {
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.main-nav a:hover {
+  opacity: 0.7;
+}
+
+/*kartya info*/
+
+.info-section {
+  max-width: 1100px;
+  margin: 50px auto 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.info-card {
+  flex: 1;
+  min-width: 260px;
+  background: #132033;
+  border-radius: 28px;
+  padding: 35px 30px;
+  text-align: center;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+  transition: transform 0.25s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-6px);
+}
+
+.icon {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.card-title {
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.info-card p {
+  line-height: 1.5;
+  opacity: 0.95;
+}
+
+/*menu resz*/
+
+.menu-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0 80px;
+}
+
+.menu-box {
+  width: 80%;
+  max-width: 1000px;
+  background: #132033;
+  border-radius: 40px;
+  padding: 40px 30px 50px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+.menu-box h2 {
+  font-size: 48px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.menu-line {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.4);
+  width: 90%;
+  margin: 0 auto 25px;
+}
+
+.menu-categories {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 26px;
+  font-size: 18px;
+}
+
+.menu-categories span {
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.menu-categories span:hover {
+  opacity: 0.7;
+}
+
+/*reszponziv*/
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 44px;
+  }
+
+  .hero-right {
+    display: none;
+  }
+
+  .main-nav {
+    gap: 20px;
+    font-size: 14px;
+    flex-wrap: wrap;
+  }
+
+  .menu-box {
+    width: 92%;
+  }
+}
+
+
+.featured {
+  max-width: 1200px;
+  margin: 30px auto 40px;
+  display: grid;
+  grid-template-columns: 1.2fr 0.9fr 1fr;
+  gap: 30px;
+  align-items: center;
+}
+
+/*bal nagy tanyer*/
+
+.featured-left {
+  position: relative;
+}
+
+.featured-left img {
+  width: 100%;
+  border-radius: 50%;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
+}
+
+.plate-overlay {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at left,
+      rgba(255, 255, 255, 0.25),
+      transparent 60%);
+}
+
+/*kozep*/
+
+.featured-middle {
+  text-align: center;
+}
+
+.featured-middle h3 {
+  font-size: 28px;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.featured-middle p {
+  opacity: 0.9;
+  margin-bottom: 20px;
+}
+
+.price {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+/*jobblista*/
+
+.featured-right {
+  max-height: 320px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+/*legordules*/
+
+.featured-right::-webkit-scrollbar {
+  width: 6px;
+}
+
+.featured-right::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
+}
+
+.mini-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.mini-item img {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.mini-text {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 14px;
+}
+
+.mini-text b {
+  background: #0f1a29;
+  padding: 4px 10px;
+  border-radius: 14px;
+  font-size: 12px;
+}
+
+/*reszponziv*/
+
+@media (max-width: 900px) {
+  .featured {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .featured-right {
+    max-height: none;
+  }
+}
