@@ -1,4 +1,4 @@
-import "./App.css";
+import "../App.css";
 
 export default function App() {
   return (
@@ -328,7 +328,7 @@ export default function App() {
           <div className="divider"></div>
 
           <p>
-            4300 Debrecen, Rózsa utca 15.
+            4300 Nyírbátor, Rózsa utca 15.
             <br />
             kiskacsaetterem@gmail.com
           </p>
