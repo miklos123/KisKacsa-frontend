@@ -7,8 +7,6 @@ export default function App() {
       <header className="hero">
         <div className="hero-overlay">
           <div className="hero-right">
-            <span>HÍRLEVÉL</span>
-            <span>FACEBOOK</span>
           </div>
           <h1 className="title">KisKacsa</h1>
         </div>

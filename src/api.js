@@ -31,3 +31,16 @@ export async function logout() {
     }
     return await res.json()
 }
+
+//italok
+export async function italok() {
+    const res = await fetch(`${BACKEND_URL}/italok`, {
+        method: 'GET'
+    })
+
+    if (!res.ok) {
+        const data = await res.json()
+        return { error: data?.error }
+    }
+    return await res.json()
+}
