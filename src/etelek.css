@@ -1,0 +1,77 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .italok-container {
+    background-color: #334155;
+    min-height: 100vh;
+    padding: 20px;
+  }
+  
+  /* 🔹 TOPBAR */
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .title {
+    color: white;
+    font-size: 48px;
+    font-weight: 300;
+    margin: 0;
+  }
+  
+  /* 🔹 ICONOK */
+  .left-icons,
+  .right-icons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .icon {
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  /* külön színek */
+  .back {
+    background: #e5e7eb;
+  }
+  
+  .add {
+    background: #22c55e;
+    color: white;
+  }
+  
+  .edit {
+    background: #38bdf8;
+    color: white;
+  }
+  
+  .delete {
+    background: #ef4444;
+    color: white;
+  }
+  
+  /* 🔹 SEARCH */
+  .search {
+    padding: 8px 12px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+  }
+  
+  /* 🔹 GRID */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 25px;
+  }
