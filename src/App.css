@@ -446,3 +446,8 @@ button:hover {
     gap: 40px;
   }
 }
+
+/* szebben gördül */
+html {
+  scroll-behavior: smooth;
+}

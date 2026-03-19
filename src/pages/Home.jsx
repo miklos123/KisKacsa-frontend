@@ -7,16 +7,19 @@ export default function App() {
       <header className="hero">
         <div className="hero-overlay">
           <div className="hero-right">
+            <a href="https://www.facebook.com/profile.php?id=61580745553845&locale=hu_HU" target="blank">
+              <span>Facebook</span>
+            </a>
           </div>
           <h1 className="title">KisKacsa</h1>
         </div>
 
         <nav className="main-nav">
-          <a>ÉTLAP</a>
-          <a>ITALLAP</a>
-          <a>AJÁNLATOK</a>
-          <a>KAPCSOLAT</a>
-          <a>ÉRTÉKELÉS</a>
+          <a href="#etlap">ÉTLAP</a>
+          <a href="#itallap">ITALLAP</a>
+          <a href="#ajanlatok">AJANLATOK</a>
+          <a href="#kapcsolat">KAPCSOLAT</a>
+          <a href="#ertekeles">ÉRTÉKELÉS</a>
         </nav>
       </header>
 
@@ -54,7 +57,7 @@ export default function App() {
       </section>
 
       {/* menu */}
-      <section className="menu-wrapper">
+      <section id="etlap" className="menu-wrapper">
         <div className="menu-box">
           <h2>Étlap</h2>
           <div className="menu-line" />
@@ -109,8 +112,10 @@ export default function App() {
         </div>
       </section>
 
+
       {/*itallap*/}
-      <section className="menu-wrapper">
+
+      <section id="itallap" className="menu-wrapper">
         <div className="menu-box">
           <h2>Itallap</h2>
           <div className="menu-line" />
@@ -125,6 +130,7 @@ export default function App() {
           </div>
         </div>
       </section>
+
 
       {/*koktel lista*/}
       <section className="drink-list">
@@ -169,7 +175,7 @@ export default function App() {
       </section>
 
       {/*rendezvenyek*/}
-      <section className="events">
+      <section id="ajanlatok" className="events">
         <div className="events-title">
           <h2>Rendezvények konferenciára</h2>
         </div>
@@ -289,7 +295,7 @@ export default function App() {
       </section>
 
       {/*etterem bemutato*/}
-      <section className="about">
+      <section id="kapcsolat" className="about">
         <div className="about-box">
           <h2>KISKACSA ÉTTEREM</h2>
 
