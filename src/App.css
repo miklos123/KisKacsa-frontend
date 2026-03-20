@@ -448,6 +448,8 @@ button:hover {
 }
 
 /* szebben gördül */
-html {
+html{
   scroll-behavior: smooth;
 }
+
+
