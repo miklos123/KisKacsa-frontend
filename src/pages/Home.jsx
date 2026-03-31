@@ -62,16 +62,6 @@ export default function App() {
       <section id="etlap" className="menu-wrapper">
         <div className="menu-box">
           <h2>Étlap</h2>
-          <div className="menu-line" />
-          <div className="menu-categories">
-            <span>A Séf ajánlatai</span>
-            <span>Előételek</span>
-            <span>Tészták</span>
-            <span>Levesek</span>
-            <span>Halak</span>
-            <span>Szárnyasok</span>
-            <span>Sertés ételek</span>
-          </div>
         </div>
       </section>
 
