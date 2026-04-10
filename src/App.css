@@ -1,228 +1,91 @@
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+/* mindenre vonatkozas */
+* {
+  box-sizing: border-box;
 }
 
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+/* szebben gordul */
+html {
+  scroll-behavior: smooth;
 }
 
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-.drink-list {
-  width: 100%;
-  padding: 60px 40px 80px;
-  background: transparent;
-}
-
-.drink-columns {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 60px;
+body {
+  margin: 0;
+  font-family: "Times New Roman", serif;
+  background: #2f4057;
+  overflow-x: hidden;
   color: #e8edf5;
+}
+
+/* container */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
   text-align: center;
 }
 
-.drink-col h4 {
-  font-size: 18px;
-  letter-spacing: 1px;
-  margin-bottom: 18px;
+/* fejléc */
+h1 {
+  font-size: 60px;
+  margin: 0;
 }
 
-.drink-col p {
-  margin: 6px 0;
-  opacity: 0.9;
+@media (max-width: 900px) {
+  h1 {
+    font-size: 32px;
+  }
 }
 
-.food-banner {
-  width: 100%;
-  margin-top: 40px;
+/* grid section */
+.drink-columns,
+.events-menus,
+.menu4-columns {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px;
+  text-align: center;
 }
 
+/* mobile grid */
+@media (max-width: 900px) {
+  .drink-columns,
+  .events-menus,
+  .menu4-columns {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+/* etel */
 .food-banner img {
   width: 100%;
-  height: 400px;
+  height: 300px;
   object-fit: cover;
-  display: block;
-  border-radius: 8px;
+  border-radius: 10px;
 }
 
-/*rendezvenyek*/
-.events {
-  width: 100%;
-  padding: 80px 40px;
-  text-align: center;
-}
-
-.events-title {
-  background: #0f2a3b;
-  color: white;
-  padding: 30px;
-  border-radius: 30px;
-  max-width: 900px;
-  margin: 0 auto 60px auto;
-}
-
-.events-title h2 {
-  font-size: 28px;
-  margin-bottom: 10px;
-}
-
-.events-title p {
-  letter-spacing: 2px;
-}
-
-.events-menus {
-  max-width: 1100px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 60px;
-  color: #e8edf5;
-}
-
-.event-card h3 {
-  letter-spacing: 3px;
-  margin-bottom: 20px;
-}
-
-.event-card h4 {
-  margin-top: 20px;
-  font-size: 16px;
-}
-
-.event-card p {
-  margin: 5px 0;
-  opacity: 0.9;
-}
-
-.price {
-  margin-top: 20px;
-  font-weight: bold;
-}
-
-/*menuajanlat 4*/
-.menu4 {
-  width: 100%;
-  padding: 80px 40px;
-  text-align: center;
-}
-
-.menu4-title {
-  font-size: 24px;
-  letter-spacing: 3px;
-  margin-bottom: 50px;
-  color: #e8edf5;
-}
-
-.menu4-columns {
-  max-width: 1200px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 60px;
-  color: #e8edf5;
-}
-
-.menu4-col h4 {
-  margin: 20px 0 10px;
-  font-size: 18px;
-}
-
-.menu4-col h5 {
-  margin-top: 15px;
-  font-size: 16px;
-}
-
-.menu4-col p {
-  margin: 4px 0;
-  opacity: 0.9;
-}
-
-/*etterem*/
+/* about */
 .about {
-  width: 100%;
-  padding: 80px 20px;
   display: flex;
   justify-content: center;
+  padding: 60px 20px;
 }
 
 .about-box {
   max-width: 900px;
   background: #0f2a3b;
-  padding: 60px 40px;
-  border-radius: 40px;
-  text-align: center;
-  color: #e8edf5;
+  padding: 40px 20px;
+  border-radius: 30px;
 }
 
-.about-box h2 {
-  font-size: 28px;
-  letter-spacing: 4px;
-  margin-bottom: 30px;
-}
-
-.about-box p {
-  margin: 8px 0;
-  opacity: 0.9;
-  line-height: 1.6;
-}
-
-.phone {
-  font-size: 18px;
-  letter-spacing: 1px;
-}
-
-.divider {
-  width: 60px;
-  height: 2px;
-  background: white;
-  margin: 30px auto;
-  opacity: 0.6;
-}
-
-/*hirlevel*/
+/* newsletter */
 .newsletter {
-  width: 100%;
-  padding: 70px 20px;
+  padding: 60px 20px;
   background: #0f2a3b;
   text-align: center;
-}
-
-.newsletter h2 {
-  color: white;
-  letter-spacing: 2px;
-  margin-bottom: 40px;
 }
 
 .newsletter-form {
@@ -231,29 +94,32 @@
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 20px;
-  align-items: end;
 }
 
+/* mobil newsletter */
+@media (max-width: 900px) {
+  .newsletter-form {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* inputs */
 .form-group {
   display: flex;
   flex-direction: column;
   text-align: left;
 }
 
-.form-group label {
-  color: #c6d4e1;
-  font-size: 14px;
-  margin-bottom: 6px;
-}
-
-.form-group input {
+input {
   padding: 10px;
   border-radius: 4px;
   border: none;
   background: #e5e5e5;
+  width: 100%;
 }
 
-.newsletter button {
+/* gomb */
+button {
   padding: 10px 20px;
   background: transparent;
   border: 2px solid #ff2e63;
@@ -263,193 +129,88 @@
   transition: 0.3s;
 }
 
-.newsletter button:hover {
+button:hover {
   background: #ff2e63;
   color: white;
 }
 
-/*footer*/
-.footer {
-  width: 100%;
-}
-
+/* footer */
 .footer-top {
   background: #425a6e;
   padding: 40px 20px;
   display: flex;
   justify-content: center;
   gap: 40px;
+  flex-wrap: wrap;
 }
 
 .footer-box {
-  border: 1px dashed rgba(255, 255, 255, 0.5);
-  padding: 20px 40px;
+  padding: 20px 30px;
   border-radius: 20px;
   text-align: center;
-  color: white;
 }
 
-.footer-box strong {
-  display: block;
-  font-size: 18px;
-  margin-bottom: 5px;
+/* mobile footer */
+@media (max-width: 900px) {
+  .footer-top {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
-.footer-box p {
-  margin: 0;
-  opacity: 0.9;
-}
-
-.footer-bottom {
-  background: #0f2a3b;
-  color: white;
-  text-align: center;
-  padding: 20px;
-  font-size: 14px;
-}
-
-/*admin felulet*/
-body {
-  margin: 0;
-  font-family: "Times New Roman", serif;
-  background: #2f4057;
-
-}
-
-.container {
-  width: 100%;
-  height: 100%;
-  margin: 40px auto;
-  background: #2f4057;
-  color: white;
-  padding: 40px;
-  text-align: center;
-
-}
-
-h1 {
-  font-size: 60px;
-  margin: 0;
-}
-
-hr {
-  margin: 20px 0 60px 0;
-  border: 1px solid white;
-}
-
-.login-form {
-  width: 400px;
-  margin: 0 auto;
-}
-
-.form-row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-label {
-  width: 100px;
-  text-align: right;
-  margin-right: 20px;
-}
-
-input {
-  width: 150px;
-  height: 25px;
-  border: none;
-  background: #e0e0e0;
-}
-
-button {
-  background: red;
-  color: white;
-  border: none;
-  padding: 8px 20px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-button:hover {
-  background: darkred;
-}
-
-/* ADMINPANEL */
-.admin-container {
-  background-color: #33455c;
-  min-height: 100vh;
-  font-family: Georgia, serif;
-}
-
+/* navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 2px solid white;
   padding: 15px 30px;
 }
 
-.navbar h1 {
-  color: white;
-  font-size: 48px;
-  margin: 0;
+/* mobilos navbar*/
+@media (max-width: 900px) {
+  .navbar {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
 }
 
-.logout-btn {
-  background-color: red;
-  border: none;
-  padding: 12px 20px;
-  font-size: 18px;
-  cursor: pointer;
-}
-
+/* admin */
 .menu-buttons {
   display: flex;
   justify-content: center;
-  gap: 60px;
-  margin-top: 120px;
-
+  gap: 20px;       /* távolság a gombok között */
+  margin: 40px 0;  /* felül-alul tér */
+  flex-wrap: wrap; /* mobilon szépen alá kerülhet */
 }
 
 .menu-buttons .button {
-  background: #b9b1b1;
-  border: none;
-  padding: 25px 60px;
-  font-size: 26px;
+  display: inline-block;
+  padding: 10px 25px;
+  background-color: #4f46e5;  /* szép lila/kék */
+  color: white;
+  text-decoration: none;      /* link aláhúzás eltüntetése */
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
   cursor: pointer;
-  color: black;
-  text-decoration: none;
 }
 
+.menu-buttons .button:hover {
+  background-color: #4338ca;  /* hover hatás */
+}
 
-/* mobil */
-@media (max-width: 900px) {
-  .menu4-columns {
-    grid-template-columns: 1fr;
-    gap: 40px;
+/* mobil nézet */
+@media (max-width: 600px) {
+  .menu-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .menu-buttons .button {
+    width: 80%;
+    text-align: center;
   }
 }
-
-/* mobil */
-@media (max-width: 900px) {
-  .events-menus {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-}
-
-/* reszponziv */
-@media (max-width: 900px) {
-  .drink-columns {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-}
-
-/* szebben gördül */
-html{
-  scroll-behavior: smooth;
-}
-
-

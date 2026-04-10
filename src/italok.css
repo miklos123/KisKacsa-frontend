@@ -11,18 +11,22 @@ body {
   
   /* 🔹 TOPBAR */
   .topbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 20px;
-  }
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
   
   .title {
-    color: white;
-    font-size: 48px;
-    font-weight: 300;
-    margin: 0;
-  }
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 48px;
+  font-weight: 300;
+  margin: 0;
+}
   
   /* 🔹 ICONOK */
   .left-icons,
@@ -75,3 +79,5 @@ body {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 25px;
   }
+
+  
