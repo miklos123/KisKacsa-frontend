@@ -23,7 +23,7 @@ const Italok = () => {
           <button className="icon edit">✎</button>
         </div>
 
-        <h1 className="title">Italok</h1>
+        <h1 className="title">Desszertek</h1>
 
         <div className="right-icons">
           <input className="search" placeholder="Keresés" />

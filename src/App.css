@@ -40,7 +40,7 @@ h1 {
 /* grid section */
 .drink-columns,
 .events-menus,
-.menu4-columns {
+.menu4-columns{
   max-width: 1100px;
   margin: auto;
   display: grid;
