@@ -28,7 +28,7 @@ const Etelek = () => {
 
   const handleAdd = async () => {
     try {
-      const res = await fetch("http://127.0.0.1:4000/termekek", {
+      const res = await fetch("https://nodejs306.dszcbaross.edu.hu/termekek", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
