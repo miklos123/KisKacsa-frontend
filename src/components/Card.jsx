@@ -3,7 +3,7 @@ import "../card.css";
 
 const Card = ({ nev, ar, kep }) => {
     console.log(kep);
-    const URL = `http://127.0.0.1:4000/uploads/${kep}`
+    const URL = `https://nodejs306.dszcbaross.edu.hu/uploads/${kep}`
   return (
     <div className="card">
       <img src={URL} alt="card" className="card-image" />
