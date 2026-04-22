@@ -13,6 +13,18 @@ const Etelek = () => {
     kep: "",
   });
 
+  const handleDelete = async (id) => {
+    try {
+      await fetch(`https://nodejs306.dszcbaross.edu.hu/termekek/${id}`, {
+        method: "DELETE",
+      });
+
+      setCards(cards.filter((card) => card.termek_id !== id));
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -26,33 +38,35 @@ const Etelek = () => {
     card.nev.toLowerCase().includes(kereses.toLowerCase())
   );
 
-  const handleAdd = async () => {
-    try {
-      const res = await fetch("https://nodejs306.dszcbaross.edu.hu/termekek", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          ...ujTermek,
-          kategoria_id: 1,
-        }),
-      });
+const handleAdd = async () => {
+  try {
+    const res = await fetch("https://nodejs306.dszcbaross.edu.hu/termekek", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        nev: ujTermek.nev,
+        ar: ujTermek.ar,
+        kep: ujTermek.kep,
+        kategoria_id: 1,
+      }),
+    });
 
-      const data = await res.json();
+    if (!res.ok) throw new Error("POST hiba");
 
-      setCards([...cards, data]);
-      setUjTermek({
-        nev: "",
-        ar: "",
-        kep: "",
-      });
-      setShowAdd(false);
-    } catch (err) {
-      console.error(err);
-    }
-  };
+    // friss lista
+    const res2 = await fetch("https://nodejs306.dszcbaross.edu.hu/termekek");
+    const data = await res2.json();
+    setCards(data);
 
+    setUjTermek({ nev: "", ar: "", kep: "" });
+    setShowAdd(false);
+
+  } catch (err) {
+    console.error(err);
+  }
+};
 
   return (
     <div className="etelek-container">
@@ -65,8 +79,6 @@ const Etelek = () => {
           <button className="icon add" onClick={() => setShowAdd(true)}>
             +
           </button>
-
-          <button className="icon edit">✎</button>
         </div>
 
         <h1 className="title">Ételek</h1>
@@ -78,9 +90,6 @@ const Etelek = () => {
             value={kereses}
             onChange={(e) => setKereses(e.target.value)}
           />
-          <button className="icon delete" onClick={() => setKereses("")}>
-            🗑
-          </button>
         </div>
       </div>
 
@@ -96,7 +105,6 @@ const Etelek = () => {
               setUjTermek({ ...ujTermek, nev: e.target.value })
             }
           />
-
           <input
             type="number"
             placeholder="Ár"
@@ -105,7 +113,6 @@ const Etelek = () => {
               setUjTermek({ ...ujTermek, ar: e.target.value })
             }
           />
-
           <input
             type="text"
             placeholder="Kép fájlnév (pl: rantott_csirke.jpg)"
@@ -114,7 +121,6 @@ const Etelek = () => {
               setUjTermek({ ...ujTermek, kep: e.target.value })
             }
           />
-
           <button onClick={handleAdd}>Hozzáadás</button>
           <button onClick={() => setShowAdd(false)}>Mégse</button>
         </div>
@@ -127,6 +133,7 @@ const Etelek = () => {
             nev={card.nev}
             ar={card.ar}
             kep={card.kep}
+            onDelete={() => handleDelete(card.termek_id)}
           />
         ))}
       </div>
