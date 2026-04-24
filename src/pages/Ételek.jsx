@@ -18,7 +18,7 @@ const Etelek = () => {
       await fetch(`https://nodejs306.dszcbaross.edu.hu/termekek/${id}`, {
         method: "DELETE",
       });
-
+  
       setCards(cards.filter((card) => card.termek_id !== id));
     } catch (err) {
       console.error(err);
@@ -35,7 +35,7 @@ const Etelek = () => {
   }, []);
 
   const szurtCards = cards.filter((card) =>
-    card.nev.toLowerCase().includes(kereses.toLowerCase())
+    card.nev?.toLowerCase().includes(kereses.toLowerCase())
   );
 
 const handleAdd = async () => {
@@ -47,7 +47,7 @@ const handleAdd = async () => {
       },
       body: JSON.stringify({
         nev: ujTermek.nev,
-        ar: ujTermek.ar,
+        ar: Number(ujTermek.ar),
         kep: ujTermek.kep,
         kategoria_id: 1,
       }),
