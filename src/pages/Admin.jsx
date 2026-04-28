@@ -2,7 +2,7 @@ import { useState } from "react";
 import "../App.css";
 import { useNavigate, Link } from "react-router-dom";
 import { login } from '../api'
-import InputMezo from "../components/inputMezo";
+import InputMezo from "../components/InputMezo";
 import FeketeGomb from "../components/Gomb";
 
 
