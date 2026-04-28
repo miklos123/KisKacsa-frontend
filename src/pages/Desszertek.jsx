@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Card from "../components/Card";
+import CardDel from "../components/CardDel";
 import "../desszertek.css";
 
 const Desszertek = () => {
@@ -13,7 +14,7 @@ const Desszertek = () => {
     kep: "",
   });
   const navigate = useNavigate();
-  console.log(cards);
+  //console.log(cards);
 
   useEffect(() => {
     fetch("/users/desszertek")
@@ -25,6 +26,12 @@ const Desszertek = () => {
   const szurtCards = cards.filter((card) =>
     card.nev.toLowerCase().includes(kereses.toLowerCase())
   );
+
+  const confirmDelete = (id) => {
+    if (window.confirm("Biztosan törölni szeretnéd?")) {
+      handleDelete(id);
+    }
+  };
 
   const handleDelete = async (id) => {
   try {
@@ -132,12 +139,12 @@ const Desszertek = () => {
       <div className="card-grid">
         {szurtCards.map((card) => (
           <Card
-            key={card.termek_id}
-            nev={card.nev}
-            ar={card.ar}
-            kep={card.kep}
-            onDelete={() => handleDelete(card.termek_id)}
-          />
+          key={card.termek_id}
+          nev={card.nev}
+          ar={card.ar}
+          kep={card.kep}
+          onDelete={() => confirmDelete(card.termek_id)}
+        />
         ))}
       </div>
     </div>

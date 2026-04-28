@@ -1,8 +1,27 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../App.css";
 
 export default function App() {
-  const [activeDrink, setActiveDrink] = useState("koktelok");
+
+  const [etelek, setEtelek] = useState([]);
+
+  useEffect(() => {
+    fetch("/users/etelek")
+      .then((res) => res.json())
+      .then((data) => setEtelek(data))
+      .catch((err) => console.error("Hiba:", err));
+  }, []);
+
+  const [italok, setItalok] = useState([]);
+
+  useEffect(() => {
+    fetch("/users/italok")
+      .then((res) => res.json())
+      .then((data) => setItalok(data))
+      .catch((err) => console.error("Hiba:", err));
+  }, []);
+
+
   return (
     <div className="page">
       {/*home resz*/}
@@ -67,232 +86,80 @@ export default function App() {
 
       {/*etel legordulo*/}
       <section className="featured">
-        <div className="featured-left">
-          <img
-            src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1000"
-            alt="étel"
-          />
-          <div className="plate-overlay" />
-        </div>
-
-        <div className="featured-middle">
-          <h3>PIRÍTOTT SERTÉSSZŰZ</h3>
-          <p>
-            Pestós kemencében sült házi kenyérrel
-          </p>
-          <div className="price">3590 Ft</div>
-        </div>
-
-        <div className="featured-right">
-          {[
-            { name: "Koronázási saláta", price: "3590 FT" },
-            { name: "Csirkeszárnyak", price: "3490 FT" },
-            { name: "Pirított sertésszűz", price: "3590 FT" },
-            { name: "Mexikói tortilla", price: "3990 FT" },
-            { name: "Baconös csusza", price: "3590 FT" },
-            { name: "Csirkemell gyümölccsel", price: "5190 FT" },
-          ].map((item, i) => (
-            <div className="mini-item" key={i}>
-              <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=200" />
-              <div className="mini-text">
-                <span>{item.name}</span>
-                <b>{item.price}</b>
-              </div>
+        {etelek.length > 0 && (
+          <>
+            <div className="featured-left">
+              <img
+                src={`"https://nodejs306.dszcbaross.edu.hu/termekek/${etelek[0].kep}`}
+                alt={etelek[0].nev}
+              />
+              <div className="plate-overlay" />
             </div>
-          ))}
-        </div>
-      </section>
 
+            <div className="featured-middle">
+              <h3>{etelek[0].nev}</h3>
+              <div className="price">{etelek[0].ar} Ft</div>
+            </div>
+
+            <div className="featured-right">
+              {etelek.map((item) => (
+                <div className="mini-item" key={item.termek_id}>
+                  <img
+                    src={`https://nodejs306.dszcbaross.edu.hu/termekek/${item.kep}`}
+                    alt={item.nev}
+                  />
+                  <div className="mini-text">
+                    <span>{item.nev}</span>
+                    <b>{item.ar} Ft</b>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </>
+        )}
+      </section>
 
       {/*itallap*/}
       <section id="itallap" className="menu-wrapper">
         <div className="menu-box">
           <h2>Itallap</h2>
-          <div className="menu-line" />
-
-          <div className="menu-categories">
-            <span onClick={() => setActiveDrink("koktelok")}>Koktélok</span>
-            <span onClick={() => setActiveDrink("uditok")}>Üdítők</span>
-            <span onClick={() => setActiveDrink("rovid")}>Rövid italok</span>
-            <span onClick={() => setActiveDrink("sorok")}>Sörök</span>
-            <span onClick={() => setActiveDrink("pezsgok")}>Pezsgők</span>
-            <span onClick={() => setActiveDrink("forro")}>Forró italok</span>
-          </div>
         </div>
       </section>
 
 
-      {/*koktel lista*/}
-      <section className="drink-list">
-        <div className="drink-columns">
+      {/*italok*/}
+      <section className="featured">
+        {italok.length > 0 && (
+          <>
+            <div className="featured-left">
+              <img
+                src={`"https://nodejs306.dszcbaross.edu.hu/termekek/${italok[0].kep}`}
+                alt={italok[0].nev}
+              />
+              <div className="plate-overlay" />
+            </div>
 
-          {activeDrink === "koktelok" && (
-            <>
-              <div className="drink-col">
-                <h4>APERITIF KOKTÉLOK</h4>
-                <p>Aperol Spritz – 2000 Ft</p>
-                <p>Hugo – 2000 Ft</p>
-                <p>Limoncello Spritz – 2000 Ft</p>
-              </div>
+            <div className="featured-middle">
+              <h3>{italok[0].nev}</h3>
+              <div className="price">{italok[0].ar} Ft</div>
+            </div>
 
-              <div className="drink-col">
-                <h4>KLASSZIKUS KOKTÉLOK</h4>
-                <p>Cosmopolitan – 1600 Ft</p>
-                <p>Mojito – 1600 Ft</p>
-                <p>Moscow Mule – 2500 Ft</p>
-                <p>William Fitz – 3200 Ft</p>
-                <p>Tequila Sunrise – 1900 Ft</p>
-                <p>Strawberry Colada – 2500 Ft</p>
-                <p>Negroni – 2600 Ft</p>
-              </div>
-
-              <div className="drink-col">
-                <h4>ALKOHOLMENTES KOKTÉLOK</h4>
-                <p>Virgin Pina Colada – 1800 Ft</p>
-                <p>Smurf Attack – 1600 Ft</p>
-                <p>Virgin Mojito – 1000 Ft</p>
-                <p>Strawberry Colada – 1600 Ft</p>
-                <p>Shirley Temple – 1600 Ft</p>
-                <p>Cazuela – 1600 Ft</p>
-              </div>
-            </>
-          )}
-
-          {activeDrink === "uditok" && (
-            <>
-              <div className="drink-col">
-                <h4>ÜDÍTŐK</h4>
-                <p>Coca-Cola – 800 Ft</p>
-                <p>Fanta – 800 Ft</p>
-                <p>Sprite – 800 Ft</p>
-                <p>Kinley – 850 Ft</p>
-                <p>Hell – 500 Ft</p>
-                <p>Naturaqua – 400 Ft</p>
-              </div>
-
-              <div className="drink-col">
-                <h4>HÁZI SZÖRPÖK</h4>
-                <p>Kékáfonya – 1200 Ft</p>
-                <p>Bodza – 1200  Ft</p>
-                <p>Fekete Ribizli – 1200  Ft</p>
-                <p>Málna – 1200  Ft</p>
-                <p>Eper – 1200  Ft</p>
-                <p>Mangó – 1200  Ft</p>
-              </div>
-
-              <div className="drink-col">
-                <h4>GYÜMÖLCSFRÖCCSÖK</h4>
-                <p>Málna Tokaji Furmintból – 1300 Ft</p>
-                <p>Bodzavirág Furmintból – 1300 Ft</p>
-                <p>Mangó Furmintból – 1300 Ft</p>
-                <p>Áfonya Furmintból – 1300 Ft</p>
-              </div>
-            </>
-          )}
-
-          {activeDrink === "rovid" && (
-            <>
-              <div className="drink-col">
-                <h4>PÁLINKÁK</h4>
-                <p>
-                  Győmbér – 1200 Ft</p>
-                <p>Kajszibarack – 1700 Ft</p>
-                <p>Szatmári szilva – 1100 Ft</p>
-                <p>Bársonybirs – 1230 Ft</p>
-                <p>Árpád pálinkák
-                  cigánymeggy – 1900 Ft</p>
-              </div>
-
-              <div className="drink-col">
-                <h4>TEQUILA</h4>
-                <p>Sierra Silver  – 1200 Ft</p>
-                <p>Patrón silver – 1500 Ft</p>
-                <p>Cenote Blanco – 1300 Ft</p>
-                <p>Cenote Anejo – 1700 Ft</p>
-                <p>Macallan – 1900 Ft</p>
-              </div>
-
-              <div className="drink-col">
-                <h4>VODKA</h4>
-                <p>Stolichnaya – 1546 Ft</p>
-                <p>Finlandia – 1213 Ft</p>
-                <p>Beluga – 1120 Ft</p>
-                <p>Greay Goose – 1700 Ft</p>
-              </div>
-            </>
-          )}
-
-          {activeDrink === "sorok" && (
-            <>
-              <div className="drink-col">
-                <h4>TEQUILA</h4>
-                <p>Dreher – 900 Ft</p>
-                <p>Soproni – 900 Ft</p>
-                <p>Heineken – 900 Ft</p>
-                <p>Soproni Démon – 900 Ft</p>
-              </div>
-
-              <div className="drink-col">
-                <h4>CSAPOLT SÖRÖK</h4>
-                <p>Edelweiss – 1200 Ft</p>
-                <p>Soproni – 1200 Ft</p>
-              </div>
-
-              <div className="drink-col">
-                <h4>CSAPOLT SÖRÖK</h4>
-                <p>Edelweiss – 1200 Ft</p>
-                <p>Soproni – 1200 Ft</p>
-                <p>Edelweiss – 1200 Ft</p>
-                <p>Soproni – 1200 Ft</p>
-              </div>
-            </>
-          )}
-
-          {activeDrink === "pezsgok" && (
-            <>
-              <div className="drink-col">
-                <h4>Pezsgők</h4>
-                <p>Törley – 4000 Ft</p>
-                <p>Hungária – 4500 Ft</p>
-              </div>
-
-              <div className="drink-col">
-                <h4>Pezsgők</h4>
-                <p>Dissegna – 5000 Ft</p>
-                <p>Pago de Tharsys – 5500 Ft</p>
-              </div>
-            </>
-          )}
-
-          {activeDrink === "forro" && (
-            <>
-              <div className="drink-col">
-                <h4>FORRÓ ITALOK</h4>
-                <p>Kávé – 660 Ft</p>
-                <p>Tea – 520 Ft</p>
-                <p>Cappucino– 890 Ft</p>
-                <p>Latte Machiato– 420 Ft</p>
-                <p>Jeges Kávé– 760 Ft</p>
-              </div>
-
-              <div className="drink-col">
-                <h4>TEÁK</h4>
-                <p>English Bland – 600 Ft</p>
-                <p>Red Fruit – 1540 Ft</p>
-                <p>Earl Grey – 230 Ft</p>
-                <p>Pepper Mint– 450 Ft</p>
-              </div>
-
-              <div className="drink-col">
-                <h4>Különlegességek</h4>
-                <p>Jasmine – 690 Ft</p>
-                <p>Influsion– 120 Ft</p>
-                <p>Roiboss– 1200 Ft</p>
-                <p>Dark Jelling– 1400 Ft</p>
-              </div>
-            </>
-          )}
-        </div>
+            <div className="featured-right">
+              {italok.map((item) => (
+                <div className="mini-item" key={item.termek_id}>
+                  <img
+                    src={`https://nodejs306.dszcbaross.edu.hu/termekek/${item.kep}`}
+                    alt={item.nev}
+                  />
+                  <div className="mini-text">
+                    <span>{item.nev}</span>
+                    <b>{item.ar} Ft</b>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </>
+        )}
       </section>
 
       {/*nagy kep*/}
@@ -521,3 +388,5 @@ export default function App() {
     </div>
   );
 }
+
+
