@@ -22,13 +22,13 @@ Győri Patrik Sándor (Backend, Mysql)
 
 # Backend
 git clone https://github.com/gyorishun/KisKacsa_backend.git
-cd KisKacsa_backend<br/> 
+<br/> cd KisKacsa_backend<br/> 
 npm install<br/> 
 npm start<br/> 
 
 # Frontend
 git clone https://github.com/miklos123/KisKacsa-frontend.git
-cd KisKacsa-frontend<br/> 
+<br/> cd KisKacsa-frontend<br/> 
 npm install<br/> 
 npm run dev<br/> 
 
