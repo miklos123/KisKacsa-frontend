@@ -9,7 +9,11 @@ export default defineConfig({
       '/users': {
         target: ' https://nodejs306.dszcbaross.edu.hu',
         changeOrigin: true
-      }
+      },
+      '/uploads': {
+        target: ' https://nodejs306.dszcbaross.edu.hu',
+        changeOrigin: true
+      },
     }
   }
 })
