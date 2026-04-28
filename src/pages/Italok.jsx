@@ -26,6 +26,12 @@ const Italok = () => {
     card.nev.toLowerCase().includes(kereses.toLowerCase())
   );
 
+  const confirmDelete = (id) => {
+    if (window.confirm("Biztosan törölni szeretnéd?")) {
+      handleDelete(id);
+    }
+  };
+
   const handleDelete = async (id) => {
     try {
       await fetch(`https://nodejs306.dszcbaross.edu.hu/termekek/${id}`, {
@@ -136,7 +142,7 @@ const Italok = () => {
             nev={card.nev}
             ar={card.ar}
             kep={card.kep}
-            onDelete={() => handleDelete(card.termek_id)}
+            onDelete={() => confirmDelete(card.termek_id)}
           />
         ))}
       </div>

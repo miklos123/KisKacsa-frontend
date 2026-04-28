@@ -13,6 +13,12 @@ const Etelek = () => {
     kep: "",
   });
 
+  const confirmDelete = (id) => {
+    if (window.confirm("Biztosan törölni szeretnéd?")) {
+      handleDelete(id);
+    }
+  };
+
   const handleDelete = async (id) => {
     try {
       await fetch(`https://nodejs306.dszcbaross.edu.hu/termekek/${id}`, {
@@ -37,6 +43,7 @@ const Etelek = () => {
   const szurtCards = cards.filter((card) =>
     card.nev?.toLowerCase().includes(kereses.toLowerCase())
   );
+  
 
 const handleAdd = async () => {
   try {
@@ -133,7 +140,7 @@ const handleAdd = async () => {
             nev={card.nev}
             ar={card.ar}
             kep={card.kep}
-            onDelete={() => handleDelete(card.termek_id)}
+            onDelete={() => confirmDelete(card.termek_id)}
           />
         ))}
       </div>
