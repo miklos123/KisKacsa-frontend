@@ -1,4 +1,4 @@
-# KisKacsa Étterem
+﻿# KisKacsa Étterem
 
 ## A projektről
 
@@ -12,8 +12,8 @@
 
 ## Készítette
 
-Horváth Miklós (Frontend, Mysql) <br/> 
-Győri Patrik Sándor (Backend, Mysql)
+Horváth Miklós
+Győri Patrik Sándor
 
 * Frontend repo: https://github.com/miklos123/KisKacsa-frontend.git
 * Backend repo: https://github.com/gyorishun/KisKacsa_backend.git
@@ -22,15 +22,15 @@ Győri Patrik Sándor (Backend, Mysql)
 
 # Backend
 git clone https://github.com/gyorishun/KisKacsa_backend.git
-<br/> cd KisKacsa_backend<br/> 
-npm install<br/> 
-npm start<br/> 
+cd KisKacsa_backend
+npm install
+npm start
 
 # Frontend
 git clone https://github.com/miklos123/KisKacsa-frontend.git
-<br/> cd KisKacsa-frontend<br/> 
-npm install<br/> 
-npm run dev<br/> 
+cd KisKacsa-frontend
+npm install
+npm run dev
 
 ---
 ## Teszt admin hozzáférés
@@ -41,25 +41,6 @@ A rendszerhez teszteléshez használható admin fiók:
 - Jelszó: kiskacsa2026 --> 12345
 
 ⚠️ Figyelem: ez csak fejlesztési környezetben használható!
----
-
-## Környezeti változók (.env)
-
-A backend futtatásához szükséges egy `.env` fájl:
-
-HOST=127.0.0.1
-PORT= 4000
-
-DB_HOST=127.0.0.1 <br/>
-DB_USER=root <br/>
-DB_PASSWORD= <br/>
-DB_NAME=kiskacsa <br/>
-DB_TIMEZONE=Z
-
-JWT_SECRET=ez_egy_very_biztonságos_jelszo <br/>
-JWT_EXPIRES_IN=7d
-
-COOKIE_NAME=token
 
 ---
 
@@ -76,7 +57,6 @@ COOKIE_NAME=token
 * nodemon
 
 <img width="254" height="367" alt="image" src="https://github.com/user-attachments/assets/53138a21-5920-46c7-9de4-4f1405ada46e" />
-
 
 ---
 
@@ -194,43 +174,6 @@ A backend REST API elven működik, és HTTP kéréseken keresztül kommunikál 
 
 ---
 
-## Frontend
-
-A frontend React alapú, és a React Router segítségével több oldalra van bontva.
-
-### Oldalak (routing)
-
-```javascript
-<Route path='/' element={<Home />}/>
-<Route path='admin' element={<Admin />}/>
-<Route path='adminpanel' element={<Adminpanel />}/>
-<Route path='etelek' element={<Ételek/>}/>
-<Route path='italok' element={<Italok/>}/>
-<Route path='desszertek' element={<Desszertek/>}/>
-```
-
----
-
-### Oldalak leírása
-
-* **Home** → főoldal
-* **Ételek** → étlap (ételek)
-* **Italok** → itallap
-* **Desszertek** → desszertek
-* **Admin** → bejelentkezési felület
-* **Adminpanel** → admin kezelőfelület
-
----
-
-### Főbb funkciók:
-
-* Étel-, ital- és desszertlista megjelenítése
-* Kategóriák szerinti szűrés
-* Admin felület az adatok kezelésére
-* Reszponzív design Bootstrap segítségével
-
----
-
 ## Biztonság
 
 * Admin felület csak bejelentkezés után érhető el
@@ -261,7 +204,13 @@ A projekt manuálisan lett tesztelve, különös figyelmet fordítva az alábbia
 
 ---
 
+##Figma nézet
+<img width="621" height="855" alt="Képernyőkép 2026-04-29 121001" src="https://github.com/user-attachments/assets/c2baaf5c-9b85-4bc2-b54e-f0f1c556668d" />
 
+*Projekt:
+https://www.figma.com/design/L4B1zwGH8Iqi64x2xghjIC/Untitled?node-id=0-1&p=f&t=0RWNrLDbV1vJyuhv-0
+
+---
 ## Használt eszközök
 
 * Visual Studio Code
@@ -273,5 +222,3 @@ A projekt manuálisan lett tesztelve, különös figyelmet fordítva az alábbia
 * Google Drive
 * ChatGPT
 * Figma
-
-
