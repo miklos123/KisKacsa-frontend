@@ -208,7 +208,7 @@ A projekt manuálisan lett tesztelve, különös figyelmet fordítva az alábbia
 <img width="621" height="855" alt="Képernyőkép 2026-04-29 121001" src="https://github.com/user-attachments/assets/c2baaf5c-9b85-4bc2-b54e-f0f1c556668d" />
 
 *Projekt:
-https://www.figma.com/design/L4B1zwGH8Iqi64x2xghjIC/Untitled?node-id=0-1&p=f&t=0RWNrLDbV1vJyuhv-0
+https://www.figma.com/proto/L4B1zwGH8Iqi64x2xghjIC/Untitled?node-id=0-1&t=0RWNrLDbV1vJyuhv-1
 
 ---
 ## Használt eszközök
