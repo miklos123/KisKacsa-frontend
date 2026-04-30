@@ -33,9 +33,9 @@ const Desszertek = () => {
     }
   };
 
-  const handleDelete = async (id) => {
+  const handleDelete = async (termek_id) => {
   try {
-    await fetch(`https://nodejs306.dszcbaross.edu.hu/termekek/${id}`, {
+    await fetch(`https://nodejs306.dszcbaross.edu.hu/users/termekekdel/${termek_id}`, {
       method: "DELETE",
     });
 
