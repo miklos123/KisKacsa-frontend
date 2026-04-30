@@ -3,7 +3,10 @@ import "../App.css";
 
 export default function App() {
 
+  /*ETELEK*/
+
   const [etelek, setEtelek] = useState([]);
+  const [selectedEtelek, setSelectedEtelek] = useState(null);
 
   useEffect(() => {
     fetch("/users/etelek")
@@ -12,7 +15,16 @@ export default function App() {
       .catch((err) => console.error("Hiba:", err));
   }, []);
 
+  useEffect(() => {
+    if (etelek.length > 0) {
+      setSelectedEtelek(etelek[0]);
+    }
+  }, [etelek]);
+
+  /*ITALOK*/
+
   const [italok, setItalok] = useState([]);
+  const [selectedItalok, setSelectedItalok] = useState(null);
 
   useEffect(() => {
     fetch("/users/italok")
@@ -20,6 +32,30 @@ export default function App() {
       .then((data) => setItalok(data))
       .catch((err) => console.error("Hiba:", err));
   }, []);
+
+  useEffect(() => {
+    if (italok.length > 0) {
+      setSelectedItalok(italok[0]);
+    }
+  }, [italok]);
+
+  /*DESSZERTEK*/
+
+  const [desszertek, setDesszertek] = useState([]);
+  const [selectedDesszert, setSelectedDesszert] = useState(null);
+
+  useEffect(() => {
+    fetch("/users/desszertek")
+      .then((res) => res.json())
+      .then((data) => setDesszertek(data))
+      .catch((err) => console.error("Hiba:", err));
+  }, []);
+
+  useEffect(() => {
+    if (desszertek.length > 0) {
+      setSelectedDesszert(desszertek[0]);
+    }
+  }, [desszertek]);
 
 
   return (
@@ -38,9 +74,9 @@ export default function App() {
         <nav className="main-nav">
           <a href="#etlap">ÉTLAP</a>
           <a href="#itallap">ITALLAP</a>
+          <a href="#desszertek">DESSZERTEK</a>
           <a href="#ajanlatok">AJANLATOK</a>
           <a href="#kapcsolat">KAPCSOLAT</a>
-          <a href="#ertekeles">ÉRTÉKELÉS</a>
         </nav>
       </header>
 
@@ -90,22 +126,24 @@ export default function App() {
           <>
             <div className="featured-left">
               <img
-                src={`"https://nodejs306.dszcbaross.edu.hu/termekek/${etelek[0].kep}`}
-                alt={etelek[0].nev}
+                src={`https://nodejs306.dszcbaross.edu.hu/uploads/${selectedEtelek?.kep}`}
+                alt={selectedEtelek?.nev}
               />
               <div className="plate-overlay" />
             </div>
 
             <div className="featured-middle">
-              <h3>{etelek[0].nev}</h3>
-              <div className="price">{etelek[0].ar} Ft</div>
+              <h3>{selectedEtelek?.nev}</h3>
+              <div className="price">{selectedEtelek?.ar} Ft</div>
             </div>
 
             <div className="featured-right">
               {etelek.map((item) => (
-                <div className="mini-item" key={item.termek_id}>
+                <div className="mini-item" key={item.termek_id}
+                onClick={() => setSelectedEtelek(item)}
+                >
                   <img
-                    src={`https://nodejs306.dszcbaross.edu.hu/termekek/${item.kep}`}
+                    src={`https://nodejs306.dszcbaross.edu.hu/uploads/${item.kep}`}
                     alt={item.nev}
                   />
                   <div className="mini-text">
@@ -133,22 +171,68 @@ export default function App() {
           <>
             <div className="featured-left">
               <img
-                src={`"https://nodejs306.dszcbaross.edu.hu/termekek/${italok[0].kep}`}
-                alt={italok[0].nev}
+                src={`https://nodejs306.dszcbaross.edu.hu/uploads/${selectedItalok?.kep}`}
+                alt={selectedItalok?.nev}
               />
               <div className="plate-overlay" />
             </div>
 
             <div className="featured-middle">
-              <h3>{italok[0].nev}</h3>
-              <div className="price">{italok[0].ar} Ft</div>
+              <h3>{selectedItalok?.nev}</h3>
+              <div className="price">{selectedItalok?.ar} Ft</div>
             </div>
 
             <div className="featured-right">
               {italok.map((item) => (
-                <div className="mini-item" key={item.termek_id}>
+                <div className="mini-item" key={item.termek_id}
+                  onClick={() => setSelectedItalok(item)}
+                >
                   <img
-                    src={`https://nodejs306.dszcbaross.edu.hu/termekek/${item.kep}`}
+                    src={`https://nodejs306.dszcbaross.edu.hu/uploads/${item.kep}`}
+                    alt={item.nev}
+                  />
+                  <div className="mini-text">
+                    <span>{item.nev}</span>
+                    <b>{item.ar} Ft</b>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </>
+        )}
+      </section>
+
+      {/*desszertek*/}
+      <section id="desszertek" className="menu-wrapper">
+        <div className="menu-box">
+          <h2>Desszertek</h2>
+        </div>
+      </section>
+
+      {/*desszertek*/}
+      <section className="featured">
+        {desszertek.length > 0 && (
+          <>
+            <div className="featured-left">
+              <img
+                src={`https://nodejs306.dszcbaross.edu.hu/uploads/${selectedDesszert?.kep}`}
+                alt={selectedDesszert?.nev}
+              />
+              <div className="plate-overlay" />
+            </div>
+
+            <div className="featured-middle">
+              <h3>{selectedDesszert?.nev}</h3>
+              <div className="price">{selectedDesszert?.ar} Ft</div>
+            </div>
+
+            <div className="featured-right">
+              {desszertek.map((item) => (
+                <div className="mini-item" key={item.termek_id}
+                  onClick={() => setSelectedDesszert(item)}
+                >
+                  <img
+                    src={`https://nodejs306.dszcbaross.edu.hu/uploads/${item.kep}`}
                     alt={item.nev}
                   />
                   <div className="mini-text">
